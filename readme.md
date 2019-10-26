@@ -70,6 +70,24 @@ ON DELETE CASCADE – learn how to use ON DELETE CASCADE referential action for 
 DELETE JOIN – show you how to delete data from multiple tables.
 
 REPLACE – learn how to insert or update data depends on whether data exists in the table or not.
+
+## Nested Queries
+Nested queries are queries inside queries.
+Eg) 
+SELECT client.client_name
+FROM client
+WHERE client.branch_id IN
+(
+    SELECT branch.branch_id
+    FROM branch
+    WHERE branch.mgr_id IN 
+    (
+	SELECT employee.emp_id
+	FROM employee
+	WHERE employee.first_name = 'michael'
+    )
+);
+
 ## MySQL data types
 NT – show you how to use integer data type.
 
